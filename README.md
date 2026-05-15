@@ -4,9 +4,11 @@
 
 **AI Engineer | Transformando desafios de negócio em soluções com IA**
 
+[![Site](https://img.shields.io/badge/dev.pedroquadro.com-111827?style=for-the-badge&logo=vercel&logoColor=white)](https://dev.pedroquadro.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedrohenriquequadro)
 
 </div>
+
 
 ---
 
