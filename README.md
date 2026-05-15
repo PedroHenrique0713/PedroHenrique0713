@@ -46,9 +46,9 @@ Antes de escrever a primeira linha de código ou montar o primeiro workflow, ent
 ### GitHub Stats
 
 <div align="center">
-  <img height="155" src="https://github-readme-stats.vercel.app/api?username=PedroHenrique0713&show_icons=true&theme=dracula&include_all_commits=true&count_private=true&hide_border=true"/>
+  <img height="155" src="./profile/stats.svg"/>
   &nbsp;
-  <img height="155" src="https://github-readme-stats.vercel.app/api/top-langs/?username=PedroHenrique0713&layout=compact&langs_count=6&theme=dracula&hide_border=true"/>
+  <img height="155" src="./profile/langs.svg"/>
 </div>
 
 ---
