@@ -9,7 +9,6 @@
 
 </div>
 
-
 ---
 
 Construo agentes de IA e automações que transformam processos manuais em sistemas inteligentes com métricas claras do outro lado.
@@ -54,5 +53,9 @@ Antes de escrever a primeira linha de código ou montar o primeiro workflow, ent
 ---
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/output/snake.svg" alt="snake"/>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/output/snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/output/snake.svg">
+    <img alt="snake" src="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/output/snake-dark.svg">
+  </picture>
 </div>
