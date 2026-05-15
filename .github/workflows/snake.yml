@@ -9,12 +9,17 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
-      - uses: Platane/snk/svg-only@v3
+      - name: Generate snake (light)
+        uses: Platane/snk/svg-only@v3
         with:
           github_user_name: PedroHenrique0713
-          outputs: |
-            dist/snake.svg
-            dist/snake-dark.svg?palette=github-dark
+          outputs: dist/snake.svg
+
+      - name: Generate snake (dark)
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: PedroHenrique0713
+          outputs: dist/snake-dark.svg?palette=github-dark
 
       - uses: crazy-max/ghaction-github-pages@v3
         with:
