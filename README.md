@@ -17,6 +17,24 @@ Antes de escrever a primeira linha de código ou montar o primeiro workflow, ent
 
 ---
 
+
+### GitHub Stats
+
+<div align="center">
+  <img width="48%" src="./profile/stats.svg"/>
+  <img width="48%" src="./profile/langs.svg"/>
+</div>
+
+---
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/output/snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/output/snake.svg">
+    <img alt="snake" src="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/output/snake-dark.svg">
+  </picture>
+</div>
+
 ### Automação & Agentes
 
 ![n8n](https://img.shields.io/badge/n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white)
@@ -38,23 +56,4 @@ Antes de escrever a primeira linha de código ou montar o primeiro workflow, ent
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" height="36" alt="PostgreSQL"/>
   &nbsp;
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="36" alt="Python"/>
-</div>
-
----
-
-### GitHub Stats
-
-<div align="center">
-  <img width="48%" src="./profile/stats.svg"/>
-  <img width="48%" src="./profile/langs.svg"/>
-</div>
-
----
-
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/output/snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/output/snake.svg">
-    <img alt="snake" src="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/output/snake-dark.svg">
-  </picture>
 </div>
