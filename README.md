@@ -45,9 +45,8 @@ Antes de escrever a primeira linha de código ou montar o primeiro workflow, ent
 ### GitHub Stats
 
 <div align="center">
-  <img height="155" src="./profile/stats.svg"/>
-  &nbsp;
-  <img height="155" src="./profile/langs.svg"/>
+  <img width="48%" src="./profile/stats.svg"/>
+  <img width="48%" src="./profile/langs.svg"/>
 </div>
 
 ---
