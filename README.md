@@ -7,16 +7,6 @@
 [![Site](https://img.shields.io/badge/dev.pedroquadro.com-111827?style=for-the-badge&logo=vercel&logoColor=white)](https://dev.pedroquadro.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedrohenriquequadro)
 
-</div>
-
----
-
-Construo agentes de IA e automações que transformam processos manuais em sistemas inteligentes com métricas claras do outro lado.
-
-Antes de escrever a primeira linha de código ou montar o primeiro workflow, entendo o problema de negócio: onde está o gargalo, qual métrica muda e o que a solução precisa entregar.
-
----
-
 
 ### GitHub Stats
 
