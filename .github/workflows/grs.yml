@@ -27,6 +27,17 @@ jobs:
           path: profile/langs.svg
           token: ${{ secrets.PAT_1 }}
 
+      # Guard: se o PAT expirar/rate-limitar, o github-readme-stats devolve um
+      # card "Something went wrong". Falha o job aqui para NAO commitar o card de
+      # erro por cima dos SVGs bons (a quebra fica visivel em vez de silenciosa).
+      - name: Fail if cards are error cards
+        run: |
+          if grep -l "Something went wrong" profile/stats.svg profile/langs.svg 2>/dev/null; then
+            echo "::error::github-readme-stats returned an error card (PAT_1 invalido/expirado ou rate limit). Nada foi commitado."
+            exit 1
+          fi
+          echo "Cards OK."
+
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update README cards"
