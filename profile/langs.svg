@@ -50,7 +50,7 @@
       fill: #8b949e;
     }
     .stagger {
-      opacity: 0;
+      opacity: 1;
       animation: fadeInAnimation 0.3s ease-in-out forwards;
     }
     #rect-mask rect{
@@ -73,7 +73,7 @@
       }
       @keyframes fadeInAnimation {
         from {
-          opacity: 0;
+          opacity: 1;
         }
         to {
           opacity: 1;
