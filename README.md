@@ -40,12 +40,24 @@
 ## 📊 GitHub Stats
 
 <div align="center">
+  <img height="180" src="./profile/stats.svg" alt="GitHub stats" />
   <img height="180" src="./profile/langs.svg" alt="Top languages" />
-  <img height="180" src="https://streak-stats.demolab.com?user=PedroHenrique0713&theme=github-dark&hide_border=true&disable_animations=true&background=0D1117&stroke=30363D&ring=39D353&fire=39D353&currStreakLabel=39D353&sideNums=8B949E&currStreakNum=C9D1D9&dates=8B949E&sideLabels=8B949E" alt="GitHub streak" />
 </div>
 
 <div align="center">
+  <img width="60%" src="https://streak-stats.demolab.com?user=PedroHenrique0713&theme=github-dark&hide_border=true&disable_animations=true&background=0D1117&stroke=30363D&ring=39D353&fire=39D353&currStreakLabel=39D353&sideNums=8B949E&currStreakNum=C9D1D9&dates=8B949E&sideLabels=8B949E" alt="GitHub streak" />
+</div>
+
+## 📈 Contribution Graph
+
+<div align="center">
   <img width="98%" src="https://github-readme-activity-graph.vercel.app/graph?username=PedroHenrique0713&bg_color=0d1117&color=39d353&line=39d353&point=ffffff&area=true&area_color=39d353&hide_border=true&custom_title=Contribution%20Graph" alt="Contribution graph" />
+</div>
+
+## 🧊 3D Contribution
+
+<div align="center">
+  <img width="98%" src="./profile-3d-contrib/profile-green-animate.svg" alt="3D contribution calendar" />
 </div>
 
 ## 🐍 Contribution Snake
@@ -56,6 +68,10 @@
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/output/snake.svg">
     <img alt="snake" src="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/output/snake-dark.svg">
   </picture>
+</div>
+
+<div align="center">
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark" alt="Dev quote" />
 </div>
 
 ## 💬 Let's talk
