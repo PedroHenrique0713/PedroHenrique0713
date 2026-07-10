@@ -1,19 +1,25 @@
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:39d353&height=210&section=header&text=Pedro%20Henrique&fontColor=ffffff&fontSize=52&desc=AI%20Engineer&descSize=22&descAlignY=62&animation=fadeIn" width="100%" alt="Pedro Henrique" />
+
 <div align="center">
 
-# Pedro Henrique Quadro de Almeida
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=900&color=39D353&center=true&vCenter=true&width=620&height=42&lines=Automation+%26+AI+Agents;n8n%2C+Supabase%2C+React%2C+Python;Turning+business+problems+into+AI+solutions" alt="What I do" />
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=2600&pause=900&color=39D353&center=true&vCenter=true&width=580&height=42&lines=AI+Engineer;Automation+%26+AI+Agents;Turning+business+problems+into+AI+solutions" alt="AI Engineer" />
+<br/>
+
+<img src="https://komarev.com/ghpvc/?username=PedroHenrique0713&color=39d353&style=for-the-badge&label=PROFILE+VIEWS" alt="Profile views" />
 
 [![Site](https://img.shields.io/badge/dev.pedroquadro.com-111827?style=for-the-badge&logo=vercel&logoColor=white)](https://dev.pedroquadro.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedrohenriquequadro)
+[![Email](https://img.shields.io/badge/Email-39D353?style=for-the-badge&logo=gmail&logoColor=0D1117)](mailto:pluspedrohenrique@gmail.com)
 
 </div>
 
 ## 👋 About
 
-- 🤖 **AI Engineer** building automation and AI agents that turn business problems into shipped systems.
-- ⚡ I live in **n8n, Supabase, React/TypeScript and Python**, wiring CRM and AI ecosystems that run in production.
-- 🧩 Full stack by habit: from Postgres schemas, webhooks and integrations to front end and LLM orchestration.
+- 🤖 **AI Engineer** turning business problems into shipped automation and AI agents.
+- 🔭 Currently deep in **AI agents, CRM automation and LLM orchestration**.
+- ⚡ Daily drivers: **n8n, Supabase, React/TypeScript and Python**, running in production.
+- 🧩 Full stack by habit: from Postgres schemas, webhooks and integrations to front end.
 - 🌎 Based in Brazil, building in public and always leveling up.
 
 ## 🧠 Automation & AI
@@ -25,7 +31,7 @@
   <img src="https://img.shields.io/badge/WhatsApp_Cloud_API-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp Cloud API" />
 </div>
 
-## ⚙️ Stack & Data
+## ⚙️ Tech Stack
 
 <div align="center">
   <img src="https://skillicons.dev/icons?i=ts,react,nextjs,vite,nodejs,python,flutter,supabase,postgres,docker&theme=dark&perline=10" alt="Tech stack" />
@@ -36,6 +42,10 @@
 <div align="center">
   <img height="180" src="./profile/langs.svg" alt="Top languages" />
   <img height="180" src="https://streak-stats.demolab.com?user=PedroHenrique0713&theme=github-dark&hide_border=true&disable_animations=true&background=0D1117&stroke=30363D&ring=39D353&fire=39D353&currStreakLabel=39D353&sideNums=8B949E&currStreakNum=C9D1D9&dates=8B949E&sideLabels=8B949E" alt="GitHub streak" />
+</div>
+
+<div align="center">
+  <img width="98%" src="https://github-readme-activity-graph.vercel.app/graph?username=PedroHenrique0713&bg_color=0d1117&color=39d353&line=39d353&point=ffffff&area=true&area_color=39d353&hide_border=true&custom_title=Contribution%20Graph" alt="Contribution graph" />
 </div>
 
 ## 🐍 Contribution Snake
@@ -56,5 +66,8 @@ Got an automation, an AI agent or a full stack build in mind? Let's connect.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedrohenriquequadro)
 [![Site](https://img.shields.io/badge/dev.pedroquadro.com-111827?style=for-the-badge&logo=vercel&logoColor=white)](https://dev.pedroquadro.com)
+[![Email](https://img.shields.io/badge/Email-39D353?style=for-the-badge&logo=gmail&logoColor=0D1117)](mailto:pluspedrohenrique@gmail.com)
 
 </div>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:39d353,100:0d1117&height=120&section=footer" width="100%" alt="" />
