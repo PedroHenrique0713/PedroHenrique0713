@@ -6,7 +6,6 @@
 
 [![Site](https://img.shields.io/badge/dev.pedroquadro.com-111827?style=for-the-badge&logo=vercel&logoColor=white)](https://dev.pedroquadro.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedrohenriquequadro)
-[![Open to remote](https://img.shields.io/badge/Open_to_remote-39D353?style=for-the-badge&logo=googlemeet&logoColor=0D1117)](https://www.linkedin.com/in/pedrohenriquequadro)
 
 </div>
 
@@ -15,7 +14,7 @@
 - 🤖 **AI Engineer** building automation and AI agents that turn business problems into shipped systems.
 - ⚡ I live in **n8n, Supabase, React/TypeScript and Python**, wiring CRM and AI ecosystems that run in production.
 - 🧩 Full stack by habit: from Postgres schemas, webhooks and integrations to front end and LLM orchestration.
-- 🌎 Building in public and open to remote roles.
+- 🌎 Based in Brazil, building in public and always leveling up.
 
 ## 🧠 Automation & AI
 
