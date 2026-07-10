@@ -22,6 +22,15 @@ jobs:
       # Guard: se o PAT expirar/rate-limitar, o github-readme-stats devolve um
       # card "Something went wrong". Falha o job aqui para NAO commitar o card de
       # erro por cima dos SVGs bons (a quebra fica visivel em vez de silenciosa).
+      # O action ignora disable_animations, entao o SVG sai com texto em
+      # opacity:0 + fadeIn. O camo do GitHub nao roda a animacao CSS de forma
+      # confiavel e o texto some. Neutraliza aqui: opacity 0 -> 1 (texto sempre
+      # visivel; a animacao, se rodar, ainda termina em 1 por causa do forwards).
+      - name: Neutralize CSS fade-in (camo renders opacity:0 text blank)
+        run: |
+          sed -i 's/opacity: 0;/opacity: 1;/g' profile/langs.svg
+          echo "langs.svg static text OK"
+
       - name: Fail if cards are error cards
         run: |
           if grep -l "Something went wrong" profile/langs.svg 2>/dev/null; then
