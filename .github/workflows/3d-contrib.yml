@@ -21,6 +21,34 @@ jobs:
           USERNAME: ${{ github.repository_owner }}
           SETTING_JSON: .github/3d-settings.json
 
+      # A "language pie" do 3D usa contributesLanguage do GitHub, que super-pondera
+      # Shell/HTML e joga o resto (TS/Python) em "other" -> passa impressao errada.
+      # O card Top Languages ja mostra a variedade real, entao removemos so o grupo
+      # do pie (translate(40,...)) do SVG, preservando calendario isometrico + radar.
+      - name: Remove misrepresentative language pie
+        run: |
+          python3 - <<'PY'
+          import re
+          path = 'profile-3d-contrib/profile-green-animate.svg'
+          s = open(path).read()
+          m = re.search(r'<g[^>]*translate\(40,', s)
+          if m:
+              start = m.start()
+              open_end = s.index('>', m.start()) + 1
+              depth, pos = 1, open_end
+              pat = re.compile(r'<g[\s>]|</g>')
+              while depth > 0:
+                  mm = pat.search(s, pos)
+                  if not mm:
+                      break
+                  depth += -1 if mm.group().startswith('</g>') else 1
+                  pos = mm.end()
+              open(path, 'w').write(s[:start] + s[pos:])
+              print('language pie removed')
+          else:
+              print('pie group not found (nothing to do)')
+          PY
+
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update 3D contribution calendar"
