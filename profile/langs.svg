@@ -14,7 +14,7 @@
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
             fill: #39d353;
-            animation: fadeInAnimation 0.8s ease-in-out forwards;
+            
           }
           @supports(-moz-appearance: auto) {
             /* Selector detects Firefox */
@@ -51,13 +51,13 @@
     }
     .stagger {
       opacity: 1;
-      animation: fadeInAnimation 0.3s ease-in-out forwards;
+      
     }
     #rect-mask rect{
-      animation: slideInAnimation 1s ease-in-out forwards;
+      
     }
     .lang-progress{
-      animation: growWidthAnimation 0.6s ease-in-out forwards;
+      
     }
     
 
@@ -80,7 +80,7 @@
         }
       }
     
-          * { animation-duration: 0s !important; animation-delay: 0s !important; }
+          
         </style>
 
         
