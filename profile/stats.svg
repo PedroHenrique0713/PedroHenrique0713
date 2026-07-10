@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">Pedro Henrique's GitHub Stats, Rank: C+</title>
-        <desc id="descId">Total Commits  : 1276</desc>
+        <desc id="descId">Total Commits  : 1278</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 188.6433807118557;
+        stroke-dashoffset: 188.6194183955659;
       }
     }
   
@@ -98,7 +98,7 @@
         }
       }
     
-          
+          * { animation-duration: 0s !important; animation-delay: 0s !important; }
         </style>
 
         
