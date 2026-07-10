@@ -34,12 +34,8 @@
 ## 📊 GitHub Stats
 
 <div align="center">
-  <img width="49%" src="./profile/stats.svg" alt="GitHub stats" />
   <img width="49%" src="./profile/langs.svg" alt="Top languages" />
-</div>
-
-<div align="center">
-  <img width="60%" src="https://streak-stats.demolab.com?user=PedroHenrique0713&theme=github-dark&hide_border=true&background=0D1117&stroke=30363D&ring=39D353&fire=39D353&currStreakLabel=39D353&sideNums=8B949E&currStreakNum=C9D1D9&dates=8B949E&sideLabels=8B949E" alt="GitHub streak" />
+  <img width="49%" src="https://streak-stats.demolab.com?user=PedroHenrique0713&theme=github-dark&hide_border=true&background=0D1117&stroke=30363D&ring=39D353&fire=39D353&currStreakLabel=39D353&sideNums=8B949E&currStreakNum=C9D1D9&dates=8B949E&sideLabels=8B949E" alt="GitHub streak" />
 </div>
 
 ## 🐍 Contribution Snake
