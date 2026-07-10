@@ -11,29 +11,34 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Generate stats card
+        uses: readme-tools/github-readme-stats-action@v1
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&count_private=true&bg_color=0d1117&title_color=39d353&text_color=8b949e&icon_color=39d353&border_color=30363d
+          path: profile/stats.svg
+          token: ${{ secrets.PAT_1 }}
+
       - name: Generate top langs card
         uses: readme-tools/github-readme-stats-action@v1
         with:
           card: top-langs
-          options: username=${{ github.repository_owner }}&layout=compact&langs_count=6&hide=html&disable_animations=true&bg_color=0d1117&title_color=39d353&text_color=8b949e&border_color=30363d
+          options: username=${{ github.repository_owner }}&layout=compact&langs_count=6&hide=html&bg_color=0d1117&title_color=39d353&text_color=8b949e&border_color=30363d
           path: profile/langs.svg
           token: ${{ secrets.PAT_1 }}
 
-      # Guard: se o PAT expirar/rate-limitar, o github-readme-stats devolve um
-      # card "Something went wrong". Falha o job aqui para NAO commitar o card de
-      # erro por cima dos SVGs bons (a quebra fica visivel em vez de silenciosa).
-      # O action ignora disable_animations, entao o SVG sai com texto em
-      # opacity:0 + fadeIn. O camo do GitHub nao roda a animacao CSS de forma
-      # confiavel e o texto some. Neutraliza aqui: opacity 0 -> 1 (texto sempre
-      # visivel; a animacao, se rodar, ainda termina em 1 por causa do forwards).
-      - name: Neutralize CSS fade-in (camo renders opacity:0 text blank)
+      # O action ignora disable_animations, entao os SVGs saem com texto em
+      # opacity:0 + fadeIn/scaleIn. O camo do GitHub nao roda a animacao CSS de
+      # forma confiavel e o texto some. Neutraliza aqui: opacity 0 -> 1 e remove
+      # as declaracoes de animation (os elementos ficam no estado final, visivel).
+      - name: Neutralize CSS animations (camo renders animated text blank)
         run: |
-          sed -i 's/opacity: 0;/opacity: 1;/g' profile/langs.svg
-          echo "langs.svg static text OK"
+          sed -i -E 's/opacity: ?0;/opacity: 1;/g; s/animation:[^;]*;//g' profile/stats.svg profile/langs.svg
+          echo "cards static text OK"
 
       - name: Fail if cards are error cards
         run: |
-          if grep -l "Something went wrong" profile/langs.svg 2>/dev/null; then
+          if grep -l "Something went wrong" profile/stats.svg profile/langs.svg 2>/dev/null; then
             echo "::error::github-readme-stats returned an error card (PAT_1 invalido/expirado ou rate limit). Nada foi commitado."
             exit 1
           fi
