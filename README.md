@@ -4,10 +4,6 @@
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=900&color=39D353&center=true&vCenter=true&width=620&height=42&lines=Automation+%26+AI+Agents;n8n%2C+Supabase%2C+React%2C+Python;Turning+business+problems+into+AI+solutions" alt="What I do" />
 
-<br/>
-
-<img src="https://komarev.com/ghpvc/?username=PedroHenrique0713&color=39d353&style=for-the-badge&label=PROFILE+VIEWS" alt="Profile views" />
-
 [![Site](https://img.shields.io/badge/dev.pedroquadro.com-111827?style=for-the-badge&logo=vercel&logoColor=white)](https://dev.pedroquadro.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedrohenriquequadro)
 [![Email](https://img.shields.io/badge/Email-39D353?style=for-the-badge&logo=gmail&logoColor=0D1117)](mailto:pluspedrohenrique@gmail.com)
@@ -44,34 +40,10 @@
   <img height="180" src="./profile/langs.svg" alt="Top languages" />
 </div>
 
-<div align="center">
-  <img width="60%" src="https://streak-stats.demolab.com?user=PedroHenrique0713&theme=github-dark&hide_border=true&disable_animations=true&background=0D1117&stroke=30363D&ring=39D353&fire=39D353&currStreakLabel=39D353&sideNums=8B949E&currStreakNum=C9D1D9&dates=8B949E&sideLabels=8B949E" alt="GitHub streak" />
-</div>
-
-## 📈 Contribution Graph
-
-<div align="center">
-  <img width="98%" src="https://github-readme-activity-graph.vercel.app/graph?username=PedroHenrique0713&bg_color=0d1117&color=39d353&line=39d353&point=ffffff&area=true&area_color=39d353&hide_border=true&custom_title=Contribution%20Graph" alt="Contribution graph" />
-</div>
-
 ## 🧊 3D Contribution
 
 <div align="center">
   <img width="98%" src="./profile-3d-contrib/profile-green-animate.svg" alt="3D contribution calendar" />
-</div>
-
-## 🐍 Contribution Snake
-
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/output/snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/output/snake.svg">
-    <img alt="snake" src="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/output/snake-dark.svg">
-  </picture>
-</div>
-
-<div align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark" alt="Dev quote" />
 </div>
 
 ## 💬 Let's talk
