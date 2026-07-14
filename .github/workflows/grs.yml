@@ -5,6 +5,12 @@ on:
     - cron: "0 3 * * *"
   workflow_dispatch:
 
+# Serializa com o 3d-contrib: os dois commitam no main, entao nunca podem
+# fazer push ao mesmo tempo (senao um toma non-fast-forward e falha).
+concurrency:
+  group: profile-commit
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
