@@ -5,6 +5,12 @@ on:
     - cron: "30 3 * * *"
   workflow_dispatch:
 
+# Serializa com o grs (Update README cards): os dois commitam no main, entao
+# nunca podem fazer push ao mesmo tempo (senao um toma non-fast-forward).
+concurrency:
+  group: profile-commit
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
