@@ -42,6 +42,13 @@ jobs:
           sed -i -E 's/opacity: ?0;/opacity: 1;/g; s/animation:[^;]*;//g' profile/stats.svg profile/langs.svg
           echo "cards static text OK"
 
+      # hide_rank tira o circulo do card, mas o rank continua no <title> (texto
+      # de acessibilidade). Invisivel na pagina, some aqui por consistencia.
+      - name: Strip rank from accessible title
+        run: |
+          sed -i -E 's/, Rank: [A-Z][+-]?//' profile/stats.svg
+          echo "title OK"
+
       - name: Fail if cards are error cards
         run: |
           if grep -l "Something went wrong" profile/stats.svg profile/langs.svg 2>/dev/null; then
