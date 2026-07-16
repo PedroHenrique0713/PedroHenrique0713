@@ -1,15 +1,15 @@
 
       <svg
-        width="467"
+        width="339.43750000000006"
         height="195"
-        viewBox="0 0 467 195"
+        viewBox="0 0 339.43750000000006 195"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         role="img"
         aria-labelledby="descId"
       >
         <title id="titleId">Pedro Henrique's GitHub Stats, Rank: B-</title>
-        <desc id="descId">Total Stars Earned: 20, Total Commits  : 1359, Total PRs: 28, Total Issues: 0, Contributed to (last year): 12</desc>
+        <desc id="descId">Total Stars Earned: 20, Total Commits  : 1363, Total PRs: 28, Total Issues: 0, Contributed to (last year): 12</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 176.78757559926308;
+        stroke-dashoffset: 176.74236165686568;
       }
     }
   
@@ -110,7 +110,7 @@
           rx="4.5"
           height="99%"
           stroke="#30363d"
-          width="466"
+          width="338.43750000000006"
           fill="#0d1117"
           stroke-opacity="1"
         />
@@ -136,18 +136,7 @@
           transform="translate(0, 55)"
         >
           
-    <g data-testid="rank-circle"
-          transform="translate(390.5, 47.5)">
-        <circle class="rank-circle-rim" cx="-10" cy="8" r="40" />
-        <circle class="rank-circle" cx="-10" cy="8" r="40" />
-        <g class="rank-text">
-          
-        <text x="-5" y="3" alignment-baseline="central" dominant-baseline="central" text-anchor="middle" data-testid="level-rank-icon">
-          B-
-        </text>
-      
-        </g>
-      </g>
+    
     <svg x="0" y="0">
       <g transform="translate(0, 0)">
     <g class="stagger" style="animation-delay: 450ms" transform="translate(25, 0)">
