@@ -25,9 +25,8 @@ Day to day I work in n8n, Supabase, React/TypeScript and Python, across the whol
 
 Recent upstream contributions:
 
-- [supabase/supabase-js](https://github.com/supabase/supabase-js): [fix(realtime): encode broadcast header fields as UTF-8](https://github.com/supabase/supabase-js/pull/2516) (merged), plus 5 fixes in review across postgrest, storage, functions and auth
+- [supabase/supabase-js](https://github.com/supabase/supabase-js): [fix(realtime): encode broadcast header fields as UTF-8](https://github.com/supabase/supabase-js/pull/2516) and [fix(functions): match response Content-Type case-insensitively](https://github.com/supabase/supabase-js/pull/2515) (both merged), plus 4 fixes in review across postgrest, storage and auth
 - [supabase/supabase](https://github.com/supabase/supabase): [docs: Apple Services ID must be first in Client IDs for web sign-in](https://github.com/supabase/supabase/pull/47707) (merged)
-- [medusajs/medusa](https://github.com/medusajs/medusa): [fix(js-sdk): handle blocked localStorage/sessionStorage access](https://github.com/medusajs/medusa/pull/15961) (in review)
 - [calcom/cal.diy](https://github.com/calcom/cal.diy): [fix(csv): quote values with carriage returns and use the correct MIME type](https://github.com/calcom/cal.diy/pull/29783) (in review)
 - [questdb/documentation](https://github.com/questdb/documentation): 4 docs PRs in review (result grid export, query timeout keys, TTL on materialized views, Docker limits)
 
