@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">Pedro Henrique's GitHub Stats</title>
-        <desc id="descId">Total Stars Earned: 18, Total Commits  : 1396, Total PRs: 85, Contributed to (last year): 19</desc>
+        <desc id="descId">Total Stars Earned: 18, Total Commits  : 1458, Total PRs: 86, Contributed to (last year): 19</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 154.8538766561033;
+        stroke-dashoffset: 153.91810510448144;
       }
     }
   
@@ -166,7 +166,7 @@
         x="219.01"
         y="12.5"
         data-testid="commits"
-      >1.4k</text>
+      >1.5k</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
@@ -181,7 +181,7 @@
         x="219.01"
         y="12.5"
         data-testid="prs"
-      >85</text>
+      >86</text>
     </g>
   </g><g transform="translate(0, 75)">
     <g class="stagger" style="animation-delay: 900ms" transform="translate(25, 0)">
