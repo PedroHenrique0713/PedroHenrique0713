@@ -23,13 +23,13 @@ Day to day I work in n8n, Supabase, React/TypeScript and Python, across the whol
 
 ## <img src="./profile/icons/git-pull-request.svg" height="20" align="center" alt="" /> Open Source
 
-Recent upstream contributions:
+Six patches merged upstream so far, in Supabase and QuestDB:
 
-- [supabase/supabase-js](https://github.com/supabase/supabase-js): [fix(realtime): encode broadcast header fields as UTF-8](https://github.com/supabase/supabase-js/pull/2516) and [fix(functions): match response Content-Type case-insensitively](https://github.com/supabase/supabase-js/pull/2515) (both merged), plus 4 fixes in review across postgrest, storage and auth
-- [supabase/supabase](https://github.com/supabase/supabase): [docs: Apple Services ID must be first in Client IDs for web sign-in](https://github.com/supabase/supabase/pull/47707) (merged), plus [wrap unguarded JSON.parse calls across studio](https://github.com/supabase/supabase/pull/48267) in review
-- [supabase/postgres-meta](https://github.com/supabase/postgres-meta): [fix: null body crash, null config guard, and roles querystring schema mismatch](https://github.com/supabase/postgres-meta/pull/1091) (in review)
-- [calcom/cal.diy](https://github.com/calcom/cal.diy): [fix(csv): quote values with carriage returns and use the correct MIME type](https://github.com/calcom/cal.diy/pull/29783) and [utility bug fixes and hardening across lib packages](https://github.com/calcom/cal.diy/pull/29820) (both in review)
-- [questdb/documentation](https://github.com/questdb/documentation): 4 docs PRs in review (result grid export, query timeout keys, TTL on materialized views, Docker limits)
+- [supabase/supabase-js](https://github.com/supabase/supabase-js): [encode broadcast header fields as UTF-8](https://github.com/supabase/supabase-js/pull/2516) · [match response Content-Type case-insensitively](https://github.com/supabase/supabase-js/pull/2515)
+- [supabase/supabase](https://github.com/supabase/supabase): [Apple Services ID must be first in Client IDs for web sign-in](https://github.com/supabase/supabase/pull/47707)
+- [questdb/documentation](https://github.com/questdb/documentation): [TTL on materialized views](https://github.com/questdb/documentation/pull/482) · [query.timeout duration key](https://github.com/questdb/documentation/pull/483) · [Parquet and CSV export in the Result Grid](https://github.com/questdb/documentation/pull/484)
+
+Open in review: [PKCE verifier](https://github.com/supabase/supabase-js/pull/2514), [storage metadata encoding](https://github.com/supabase/supabase-js/pull/2518), [postgrest filter escaping](https://github.com/supabase/supabase-js/pull/2529) and [rpc over POST](https://github.com/supabase/supabase-js/pull/2530) in supabase-js; [JSON.parse hardening across Studio](https://github.com/supabase/supabase/pull/48267); [null guards in postgres-meta](https://github.com/supabase/postgres-meta/pull/1091); [CSV quoting](https://github.com/calcom/cal.diy/pull/29783) and [lib hardening](https://github.com/calcom/cal.diy/pull/29820) in cal.diy; plus one each in [Appsmith](https://github.com/appsmithorg/appsmith/pull/42033), [ToolJet](https://github.com/ToolJet/ToolJet/pull/17269), [Infisical](https://github.com/Infisical/infisical/pull/7400) and [QuestDB docs](https://github.com/questdb/documentation/pull/477).
 
 ## <img src="./profile/icons/chart-column.svg" height="20" align="center" alt="" /> Stats
 
