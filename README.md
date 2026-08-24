@@ -2,7 +2,7 @@
 
 **AI Engineer** · Brazil
 
-[![Site](https://img.shields.io/badge/dev.pedroquadro.com-111827?style=flat-square&logo=vercel&logoColor=white)](https://dev.pedroquadro.com) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedrohenriquequadro) [![Email](https://img.shields.io/badge/Email-39D353?style=flat-square&logo=gmail&logoColor=0D1117)](mailto:pluspedrohenrique@gmail.com)
+[![Site](https://img.shields.io/badge/dev.pedroquadro.com-111827?style=flat-square&logo=vercel&logoColor=white)](https://dev.pedroquadro.com/en) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedrohenriquequadro) [![Email](https://img.shields.io/badge/Email-39D353?style=flat-square&logo=gmail&logoColor=0D1117)](mailto:pluspedrohenrique@gmail.com)
 
 ## <img src="./profile/icons/user.svg" height="20" align="center" alt="" /> About
 
