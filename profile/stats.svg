@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">Pedro Henrique's GitHub Stats</title>
-        <desc id="descId">Total Stars Earned: 18, Total Commits  : 2039, Total PRs: 146, Contributed to (last year): 21</desc>
+        <desc id="descId">Total Stars Earned: 18, Total Commits  : 2040, Total PRs: 146, Contributed to (last year): 21</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 136.3694912241663;
+        stroke-dashoffset: 136.36242864379807;
       }
     }
   
