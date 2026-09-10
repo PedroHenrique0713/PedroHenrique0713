@@ -1,0 +1,44 @@
+name: Update neofetch card
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "profile/neofetch/build.py"
+      - "profile/neofetch/portrait.json"
+      - ".github/workflows/neofetch.yml"
+
+# Qualquer workflow que commita no main entra neste grupo, senao dois pushes
+# simultaneos tomam non-fast-forward.
+concurrency:
+  group: profile-commit
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # PAT_1 le os repos privados e das orgs; sem ele commits e linhas saem
+      # contando so o que e publico.
+      - name: Render card
+        env:
+          GH_TOKEN: ${{ secrets.PAT_1 }}
+          GH_LOGIN: ${{ github.repository_owner }}
+        run: python profile/neofetch/build.py
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update neofetch card"
+          file_pattern: "profile/neofetch/dark.svg profile/neofetch/light.svg profile/neofetch/loc-cache.json"

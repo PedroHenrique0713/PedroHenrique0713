@@ -1,6 +1,9 @@
-# Pedro Henrique
-
-**AI Engineer** · Brazil
+<a href="https://dev.pedroquadro.com/en">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/main/profile/neofetch/dark.svg">
+    <img alt="Pedro Henrique, AI Engineer in Brazil. A neofetch-style card with his stack, the systems he runs in production, his merged open source work and live GitHub stats." src="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/main/profile/neofetch/light.svg">
+  </picture>
+</a>
 
 [![Site](https://img.shields.io/badge/dev.pedroquadro.com-111827?style=flat-square&logo=vercel&logoColor=white)](https://dev.pedroquadro.com/en) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedrohenriquequadro) [![Email](https://img.shields.io/badge/Email-39D353?style=flat-square&logo=gmail&logoColor=0D1117)](mailto:pluspedrohenrique@gmail.com)
 
@@ -41,24 +44,6 @@ Open in review: [PKCE verifier](https://github.com/supabase/supabase-js/pull/251
 - **[claude-dongle](https://github.com/PedroHenrique0713/claude-dongle)** — usage-limit monitor for Claude Code: burn rate, overflow forecast and per-project consumption over the official OAuth usage API. Python, PyQt6.
 - **BodyWay** — personal trainer app, Flutter + Supabase (RLS, 20 Edge Functions), live on [Google Play](https://play.google.com/store/apps/details?id=com.bodyway.app) and the [App Store](https://apps.apple.com/br/app/body-way/id6762882978).
 - **[Cromo Certo](https://cromocerto.hypermind.space)** — freemium marketplace for World Cup 2026 sticker collectors: trades, auctions and on-device album scanning. React 19, Supabase, Turborepo.
-
-## <img src="./profile/icons/layers.svg" height="20" align="center" alt="" /> Stack
-
-<p>
-  <img src="https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white" alt="n8n" />
-  <img src="https://img.shields.io/badge/Claude-D97706?style=flat-square&logo=anthropic&logoColor=white" alt="Claude" />
-  <img src="https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI" />
-  <img src="https://img.shields.io/badge/WhatsApp_Cloud_API-25D366?style=flat-square&logo=whatsapp&logoColor=white" alt="WhatsApp Cloud API" />
-</p>
-
-<img src="https://skillicons.dev/icons?i=ts,react,nextjs,nodejs,python,flutter,supabase,postgres,docker&theme=dark&perline=9" alt="TypeScript, React, Next.js, Node.js, Python, Flutter, Supabase, Postgres, Docker" />
-
-## <img src="./profile/icons/chart-column.svg" height="20" align="center" alt="" /> Stats
-
-<p>
-  <img height="170" src="./profile/stats.svg" alt="GitHub stats" />
-  <img height="170" src="./profile/langs.svg" alt="Top languages" />
-</p>
 
 ## <img src="./profile/icons/mail.svg" height="20" align="center" alt="" /> Contact
 
