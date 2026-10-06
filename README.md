@@ -27,15 +27,16 @@ Most of what I ship day to day is private code for enterprise clients, so this p
 
 ## <img src="./profile/icons/git-pull-request.svg" height="20" align="center" alt="" /> Open Source
 
-Six patches merged upstream so far, in Supabase and QuestDB:
+Seven patches merged upstream so far, in Supabase and QuestDB:
 
 - [supabase/supabase-js](https://github.com/supabase/supabase-js): [encode broadcast header fields as UTF-8](https://github.com/supabase/supabase-js/pull/2516) · [match response Content-Type case-insensitively](https://github.com/supabase/supabase-js/pull/2515)
 - [supabase/supabase](https://github.com/supabase/supabase): [Apple Services ID must be first in Client IDs for web sign-in](https://github.com/supabase/supabase/pull/47707)
+- [questdb/nodejs-questdb-client](https://github.com/questdb/nodejs-questdb-client): [accept BigInt values in intColumn()](https://github.com/questdb/nodejs-questdb-client/pull/63)
 - [questdb/documentation](https://github.com/questdb/documentation): [TTL on materialized views](https://github.com/questdb/documentation/pull/482) · [query.timeout duration key](https://github.com/questdb/documentation/pull/483) · [Parquet and CSV export in the Result Grid](https://github.com/questdb/documentation/pull/484)
 
 The one I'd point at first is [supabase-js#2516](https://github.com/supabase/supabase-js/pull/2516): a UTF-8 byte-length mismatch was silently corrupting Realtime broadcast headers whenever a channel name carried an accent or an emoji. One side counted characters, the other counted bytes, so every test passed in plain English. Fixed with a regression test that failed before and passed after.
 
-Open in review: [PKCE verifier](https://github.com/supabase/supabase-js/pull/2514), [storage metadata encoding](https://github.com/supabase/supabase-js/pull/2518), [postgrest filter escaping](https://github.com/supabase/supabase-js/pull/2529) and [rpc over POST](https://github.com/supabase/supabase-js/pull/2530) in supabase-js; [JSON.parse hardening across Studio](https://github.com/supabase/supabase/pull/48267); [null guards in postgres-meta](https://github.com/supabase/postgres-meta/pull/1091); [CSV quoting](https://github.com/calcom/cal.diy/pull/29783) and [lib hardening](https://github.com/calcom/cal.diy/pull/29820) in cal.diy; [Infisical](https://github.com/Infisical/infisical/pull/7400); plus [ulimit and vm.max_map_count in Docker](https://github.com/questdb/documentation/pull/477), [the legacy shared.worker.* keys and three-pool split](https://github.com/questdb/documentation/pull/536) and [Drizzle ORM in third-party tools](https://github.com/questdb/documentation/pull/537) in QuestDB docs.
+Open in review: [storage metadata encoding](https://github.com/supabase/supabase-js/pull/2518), [postgrest filter escaping](https://github.com/supabase/supabase-js/pull/2529), [rpc over POST](https://github.com/supabase/supabase-js/pull/2530), [no channel join before an in-flight auth call settles](https://github.com/supabase/supabase-js/pull/2655), [object key encoding in every storage URL](https://github.com/supabase/supabase-js/pull/2656) and [array literal quoting in contains and overlaps](https://github.com/supabase/supabase-js/pull/2657) in supabase-js; [Cekura run results as eval scores](https://github.com/future-agi/future-agi/pull/2198), [background export of large annotation queues](https://github.com/future-agi/future-agi/pull/2316) and [prompt variables mapped to dataset columns](https://github.com/future-agi/future-agi/pull/2486) in Future AGI; [CSV quoting](https://github.com/calcom/cal.diy/pull/29783) in cal.diy; plus [ulimit and vm.max_map_count in Docker](https://github.com/questdb/documentation/pull/477), [the legacy shared.worker.* keys and three-pool split](https://github.com/questdb/documentation/pull/536), [Drizzle ORM in third-party tools](https://github.com/questdb/documentation/pull/537) and [symbol capacity auto-scaling keys](https://github.com/questdb/documentation/pull/541) in QuestDB docs.
 
 ## <img src="./profile/icons/package.svg" height="20" align="center" alt="" /> Products I built and run
 
@@ -47,6 +48,6 @@ Open in review: [PKCE verifier](https://github.com/supabase/supabase-js/pull/251
 
 ## <img src="./profile/icons/mail.svg" height="20" align="center" alt="" /> Contact
 
-Based in Brazil (UTC-3), working remotely with teams in the US and Europe. English: professional working proficiency.
+Based in Brazil (UTC-3), fully remote. English: professional working proficiency; all my open source work is in English.
 
 Reach me on [LinkedIn](https://www.linkedin.com/in/pedrohenriquequadro) or by [email](mailto:pluspedrohenrique@gmail.com).
