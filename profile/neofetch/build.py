@@ -20,7 +20,7 @@ LOGIN = os.environ.get("GH_LOGIN", "PedroHenrique0713")
 TOKEN = os.environ["GH_TOKEN"]
 CAREER_START = dt.date(2020, 5, 1)
 # PRs to these owners are day-job or personal work, not upstream open source.
-OWN_OWNERS = [LOGIN, "SOLABS-ORG", "starhash-ai"]
+OWN_OWNERS = [LOGIN, "SOLABS-ORG", "starhash-ai", "Starhash-LTDA"]
 OWNER_NAMES = {"supabase": "Supabase", "questdb": "QuestDB", "calcom": "Cal.com", "Infisical": "Infisical"}
 # A commit this big is a lockfile, a vendored library or generated code, not writing.
 MAX_COMMIT_LINES = 5000
@@ -118,7 +118,7 @@ query($owner: String!, $name: String!, $author: ID!, $cursor: String) {
 
 def search_prs(state):
     excluded = " ".join(f"-user:{owner}" for owner in OWN_OWNERS)
-    query = f"is:pr author:{LOGIN} {state} {excluded}"
+    query = f"is:pr is:public author:{LOGIN} {state} {excluded}"
     nodes, cursor = [], None
     while True:
         page = gql(SEARCH_QUERY, q=query, cursor=cursor)["search"]
