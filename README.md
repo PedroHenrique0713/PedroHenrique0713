@@ -1,17 +1,19 @@
-<a href="https://dev.pedroquadro.com/en">
+<a href="https://dev.pedroquadro.com">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/main/profile/neofetch/dark.svg">
     <img alt="Pedro Henrique, AI Engineer in Brazil. A neofetch-style card with his stack, the systems he runs in production, his merged open source work and live GitHub stats." src="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/main/profile/neofetch/light.svg">
   </picture>
 </a>
 
-[![Site](https://img.shields.io/badge/dev.pedroquadro.com-111827?style=flat-square&logo=vercel&logoColor=white)](https://dev.pedroquadro.com/en) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedrohenriquequadro) [![Email](https://img.shields.io/badge/Email-39D353?style=flat-square&logo=gmail&logoColor=0D1117)](mailto:pluspedrohenrique@gmail.com)
+[![Site](https://img.shields.io/badge/dev.pedroquadro.com-111827?style=flat-square&logo=vercel&logoColor=white)](https://dev.pedroquadro.com) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedrohenriquequadro) [![Email](https://img.shields.io/badge/Email-39D353?style=flat-square&logo=gmail&logoColor=0D1117)](mailto:pluspedrohenrique@gmail.com)
 
 ## <img src="./profile/icons/user.svg" height="20" align="center" alt="" /> About
 
 I build AI systems that run in production, not demos: LLM agents that handle 300+ leads a day, the server-side tracking that proves those leads converted, and the stack underneath — Postgres schemas, webhooks, auth and the front end.
 
-Most of what I ship day to day is private code for enterprise clients, so this profile has two halves: the systems I built but can't open, and the work you can audit yourself.
+Today I'm an AI engineer at **Solabs**, building AI agents, integrations and conversion tracking for the companies it serves, and a software engineer at **[Starhash](https://starhash.ai)**, a platform that licenses creators' likeness for generative AI, live with real billing. Before that, I was the sole developer of a multi-tenant CRM.
+
+Most of what I ship day to day is private code, so this profile has two halves: the systems I built but can't open, and the work you can audit yourself.
 
 ## <img src="./profile/icons/cpu.svg" height="20" align="center" alt="" /> Systems in production
 
@@ -21,18 +23,20 @@ Most of what I ship day to day is private code for enterprise clients, so this p
 
 **Multi-tenant SaaS CRM · 862 commits, 20 active clients** — sole developer, end to end: PostgreSQL schema with row-level security and Edge Functions, WhatsApp Inbox on the official Cloud API, Kanban pipeline, dashboards, and a React/TypeScript/Vite front end with route-level code splitting.
 
-**Authentication and social login** — Google, TikTok and Instagram on OIDC/OAuth 2.0, replacing Keycloak with an in-house JWT layer (access token plus rotating refresh in an httpOnly cookie) in a Next.js + MongoDB product.
+**Authentication, social login and ad integrations at Starhash** — 700+ commits since June 2026. Google and YouTube, TikTok and Instagram on OIDC/OAuth 2.0, each one approved in that platform's app review; Keycloak replaced with an in-house JWT layer (access token plus rotating refresh in an httpOnly cookie) in a Next.js + MongoDB product; Starboost, the integration with the ad accounts on Meta, TikTok and Google Ads; and ownership checks on every authenticated route, locked behind CI guards.
 
 **RAG agents with layered memory** — triage, FAQs and human handoff over an embedded knowledge base, cutting first-response time by 60%.
 
 ## <img src="./profile/icons/git-pull-request.svg" height="20" align="center" alt="" /> Open Source
 
-Seven patches merged upstream so far, in Supabase and QuestDB:
+Ten patches merged upstream so far, in Supabase, QuestDB and Kestra:
 
 - [supabase/supabase-js](https://github.com/supabase/supabase-js): [encode broadcast header fields as UTF-8](https://github.com/supabase/supabase-js/pull/2516) · [match response Content-Type case-insensitively](https://github.com/supabase/supabase-js/pull/2515)
 - [supabase/supabase](https://github.com/supabase/supabase): [Apple Services ID must be first in Client IDs for web sign-in](https://github.com/supabase/supabase/pull/47707)
 - [questdb/nodejs-questdb-client](https://github.com/questdb/nodejs-questdb-client): [accept BigInt values in intColumn()](https://github.com/questdb/nodejs-questdb-client/pull/63)
 - [questdb/documentation](https://github.com/questdb/documentation): [TTL on materialized views](https://github.com/questdb/documentation/pull/482) · [query.timeout duration key](https://github.com/questdb/documentation/pull/483) · [Parquet and CSV export in the Result Grid](https://github.com/questdb/documentation/pull/484)
+- [kestra-io/plugin-digitalocean](https://github.com/kestra-io/plugin-digitalocean): [snapshot tasks and volume CreateSnapshot](https://github.com/kestra-io/plugin-digitalocean/pull/17) · [balance, billing history and invoice tasks](https://github.com/kestra-io/plugin-digitalocean/pull/18)
+- [kestra-io/blueprints](https://github.com/kestra-io/blueprints): [Meta Conversions API CRM conversion leads blueprint](https://github.com/kestra-io/blueprints/pull/549)
 
 The one I'd point at first is [supabase-js#2516](https://github.com/supabase/supabase-js/pull/2516): a UTF-8 byte-length mismatch was silently corrupting Realtime broadcast headers whenever a channel name carried an accent or an emoji. One side counted characters, the other counted bytes, so every test passed in plain English. Fixed with a regression test that failed before and passed after.
 
