@@ -30,7 +30,7 @@ VALUE_COLUMN = 15
 
 THEMES = {
     "dark": {
-        "bar": "#303030", "body": "#1e1e1e", "border": "#454545",
+        "bar": "#303030", "body": "#000000", "border": "#454545",
         "txt": "#f6f5f4", "dim": "#a6a6a6", "key": "#99c1f1", "val": "#f6f5f4",
         "add": "#8ff0a4", "del": "#ff7b63", "title": "#deddda", "control": "#454545",
         "logo1": "#51a2da", "logo2": "#f6f5f4",

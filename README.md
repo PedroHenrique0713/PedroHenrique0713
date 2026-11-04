@@ -9,7 +9,7 @@
 
 ## <img src="./profile/icons/user.svg" height="20" align="center" alt="" /> About
 
-I build AI systems that run in production, not demos: LLM agents that handle 300+ leads a day, the server-side tracking that proves those leads converted, and the stack underneath — Postgres schemas, webhooks, auth and the front end.
+I build AI systems that run in production, not demos: LLM agents that handle 300+ leads a day, the server-side tracking that proves those leads converted, and the stack underneath, including Postgres schemas, webhooks, auth and the front end.
 
 Today I'm an AI engineer at **Solabs**, building AI agents, integrations and conversion tracking for the companies it serves, and a software engineer at **[Starhash](https://starhash.ai)**, a platform that licenses creators' likeness for generative AI, live with real billing. Before that, I was the sole developer of a multi-tenant CRM.
 
@@ -17,15 +17,15 @@ Most of what I ship day to day is private code, so this profile has two halves: 
 
 ## <img src="./profile/icons/cpu.svg" height="20" align="center" alt="" /> Systems in production
 
-**AI SDR agents · WhatsApp and Instagram** — qualification, meeting booking and direct CRM writes (Bitrix24, RD Station), handling 300+ leads a day. Meta delivers the same webhook two or more times in parallel, milliseconds apart, so deduplication has to be cross-execution rather than in-memory; conversations that leave the agent's scope are handed to a human instead of guessed at.
+**AI SDR agents · WhatsApp and Instagram**: qualification, meeting booking and direct CRM writes (Bitrix24, RD Station), handling 300+ leads a day. Meta delivers the same webhook two or more times in parallel, milliseconds apart, so deduplication has to be cross-execution rather than in-memory; conversations that leave the agent's scope are handed to a human instead of guessed at.
 
-**Server-side conversion tracking** — Meta CAPI and Google Ads offline conversions fed from CRM stage changes, which brought back attribution for campaigns reporting zero conversions. The root cause is rarely the pixel: it is usually the funnel the form posts to versus the one the automation reads.
+**Server-side conversion tracking**: Meta CAPI and Google Ads offline conversions fed from CRM stage changes, which brought back attribution for campaigns reporting zero conversions. The root cause is rarely the pixel: it is usually the funnel the form posts to versus the one the automation reads.
 
-**Multi-tenant SaaS CRM · 862 commits, 20 active clients** — sole developer, end to end: PostgreSQL schema with row-level security and Edge Functions, WhatsApp Inbox on the official Cloud API, Kanban pipeline, dashboards, and a React/TypeScript/Vite front end with route-level code splitting.
+**Multi-tenant SaaS CRM · 862 commits, 20 active clients**: sole developer, end to end: PostgreSQL schema with row-level security and Edge Functions, WhatsApp Inbox on the official Cloud API, Kanban pipeline, dashboards, and a React/TypeScript/Vite front end with route-level code splitting.
 
-**Authentication, social login and ad integrations at Starhash** — 700+ commits since June 2026. Google and YouTube, TikTok and Instagram on OIDC/OAuth 2.0, each one approved in that platform's app review; Keycloak replaced with an in-house JWT layer (access token plus rotating refresh in an httpOnly cookie) in a Next.js + MongoDB product; Starboost, the integration with the ad accounts on Meta, TikTok and Google Ads; and ownership checks on every authenticated route, locked behind CI guards.
+**Authentication, social login and ad integrations at Starhash**: 700+ commits since June 2026. Google and YouTube, TikTok and Instagram on OIDC/OAuth 2.0, each one approved in that platform's app review; Keycloak replaced with an in-house JWT layer (access token plus rotating refresh in an httpOnly cookie) in a Next.js + MongoDB product; Starboost, the integration with the ad accounts on Meta, TikTok and Google Ads; and ownership checks on every authenticated route, locked behind CI guards.
 
-**RAG agents with layered memory** — triage, FAQs and human handoff over an embedded knowledge base, cutting first-response time by 60%.
+**RAG agents with layered memory**: triage, FAQs and human handoff over an embedded knowledge base, cutting first-response time by 60%.
 
 ## <img src="./profile/icons/git-pull-request.svg" height="20" align="center" alt="" /> Open Source
 
@@ -44,11 +44,11 @@ Open in review: [storage metadata encoding](https://github.com/supabase/supabase
 
 ## <img src="./profile/icons/package.svg" height="20" align="center" alt="" /> Products I built and run
 
-- **[IdeiaTaker](https://app.ideiataker.space)** — meeting transcription and AI summaries for Google Meet with no bot in the call: it reads the native captions, so no extra participant joins and no audio is recorded. Chrome MV3, Next.js, Supabase, Groq and Gemini. In production.
-- **[brain-template](https://github.com/PedroHenrique0713/brain-template)** — persistent, git-versioned memory for AI coding agents: semantic facts, session handoffs and skills in plain Markdown, shared across Claude Code, Gemini CLI and local models. No vendor database, no auto-compaction.
-- **[claude-dongle](https://github.com/PedroHenrique0713/claude-dongle)** — usage-limit monitor for Claude Code: burn rate, overflow forecast and per-project consumption over the official OAuth usage API. Python, PyQt6.
-- **BodyWay** — personal trainer app, Flutter + Supabase (RLS, 20 Edge Functions), live on [Google Play](https://play.google.com/store/apps/details?id=com.bodyway.app) and the [App Store](https://apps.apple.com/br/app/body-way/id6762882978).
-- **[Cromo Certo](https://cromocerto.hypermind.space)** — freemium marketplace for World Cup 2026 sticker collectors: trades, auctions and on-device album scanning. React 19, Supabase, Turborepo.
+- **[IdeiaTaker](https://app.ideiataker.space)**: meeting transcription and AI summaries for Google Meet with no bot in the call: it reads the native captions, so no extra participant joins and no audio is recorded. Chrome MV3, Next.js, Supabase, Groq and Gemini. In production.
+- **[brain-template](https://github.com/PedroHenrique0713/brain-template)**: persistent, git-versioned memory for AI coding agents: semantic facts, session handoffs and skills in plain Markdown, shared across Claude Code, Gemini CLI and local models. No vendor database, no auto-compaction.
+- **[claude-dongle](https://github.com/PedroHenrique0713/claude-dongle)**: usage-limit monitor for Claude Code: burn rate, overflow forecast and per-project consumption over the official OAuth usage API. Python, PyQt6.
+- **BodyWay**: personal trainer app, Flutter + Supabase (RLS, 20 Edge Functions), live on [Google Play](https://play.google.com/store/apps/details?id=com.bodyway.app) and the [App Store](https://apps.apple.com/br/app/body-way/id6762882978).
+- **[Cromo Certo](https://cromocerto.hypermind.space)**: freemium marketplace for World Cup 2026 sticker collectors: trades, auctions and on-device album scanning. React 19, Supabase, Turborepo.
 
 ## <img src="./profile/icons/mail.svg" height="20" align="center" alt="" /> Contact
 
