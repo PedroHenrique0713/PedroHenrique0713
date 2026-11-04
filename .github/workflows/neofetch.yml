@@ -8,7 +8,7 @@ on:
     branches: [main]
     paths:
       - "profile/neofetch/build.py"
-      - "profile/neofetch/portrait.json"
+      - "profile/neofetch/fedora.txt"
       - ".github/workflows/neofetch.yml"
 
 # Qualquer workflow que commita no main entra neste grupo, senao dois pushes

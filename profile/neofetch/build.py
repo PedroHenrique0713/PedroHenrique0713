@@ -1,4 +1,4 @@
-"""Render the neofetch-style profile card (dark.svg, light.svg) from live GitHub data.
+"""Render the Fedora terminal profile card from live GitHub data.
 
 Runs daily in Actions with the standard library only. GH_TOKEN must be able to read
 the owner's private and organization repositories, or the commit and line counts
@@ -7,8 +7,10 @@ only cover what it can see.
 import base64
 import datetime as dt
 import hashlib
+import itertools
 import json
 import os
+import re
 import time
 import urllib.error
 import urllib.request
@@ -18,26 +20,28 @@ from xml.sax.saxutils import escape
 HERE = Path(__file__).parent
 LOGIN = os.environ.get("GH_LOGIN", "PedroHenrique0713")
 TOKEN = os.environ["GH_TOKEN"]
-CAREER_START = dt.date(2020, 5, 1)
 # PRs to these owners are day-job or personal work, not upstream open source.
 OWN_OWNERS = [LOGIN, "SOLABS-ORG", "starhash-ai", "Starhash-LTDA"]
 OWNER_NAMES = {"supabase": "Supabase", "questdb": "QuestDB", "calcom": "Cal.com", "Infisical": "Infisical"}
 # A commit this big is a lockfile, a vendored library or generated code, not writing.
 MAX_COMMIT_LINES = 5000
-WIDTH = 64  # info panel, in characters
+WIDTH = 58  # information beside the Fedora logo, in monospace characters
+VALUE_COLUMN = 15
 
 THEMES = {
     "dark": {
-        "bar": "#161b22", "body": "#0d1117", "border": "#30363d",
-        "txt": "#e6edf3", "dim": "#484f58", "key": "#39d353", "val": "#a5d6ff",
-        "add": "#3fb950", "del": "#f85149", "title": "#8b949e",
-        "spark": ["#2d333b", "#0e4429", "#006d32", "#26a641", "#39d353"],
+        "bar": "#303030", "body": "#1e1e1e", "border": "#454545",
+        "txt": "#f6f5f4", "dim": "#a6a6a6", "key": "#99c1f1", "val": "#f6f5f4",
+        "add": "#8ff0a4", "del": "#ff7b63", "title": "#deddda", "control": "#454545",
+        "logo1": "#51a2da", "logo2": "#f6f5f4",
+        "spark": ["#454545", "#1c4c80", "#3584e4", "#62a0ea", "#99c1f1"],
     },
     "light": {
-        "bar": "#f6f8fa", "body": "#ffffff", "border": "#d0d7de",
-        "txt": "#1f2328", "dim": "#afb8c1", "key": "#1a7f37", "val": "#0550ae",
-        "add": "#1a7f37", "del": "#cf222e", "title": "#57606a",
-        "spark": ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+        "bar": "#ebebeb", "body": "#ffffff", "border": "#c0bfbc",
+        "txt": "#241f31", "dim": "#626262", "key": "#1c71d8", "val": "#241f31",
+        "add": "#1a7f37", "del": "#c01c28", "title": "#3d3846", "control": "#d5d3d0",
+        "logo1": "#3c6eb4", "logo2": "#1f3b73",
+        "spark": ["#deddda", "#b5d5ff", "#62a0ea", "#3584e4", "#1c71d8"],
     },
 }
 
@@ -172,13 +176,6 @@ def lines_of_code(author_id):
             sum(v[2] for v in fresh.values()))
 
 
-def uptime(today):
-    months = (today.year - CAREER_START.year) * 12 + today.month - CAREER_START.month
-    years, months = divmod(months, 12)
-    plural = lambda n, word: f"{n} {word}{'' if n == 1 else 's'}"
-    return f"{plural(years, 'year')}, {plural(months, 'month')} since the first client"
-
-
 def fetch(today):
     user = gql(PROFILE_QUERY, login=LOGIN)["user"]
     calendar = user["contributionsCollection"]["contributionCalendar"]
@@ -192,7 +189,6 @@ def fetch(today):
     latest = max(merged, key=lambda pr: pr["mergedAt"]) if merged else None
     commits, added, deleted = lines_of_code(user["id"])
     return {
-        "uptime": uptime(today),
         "repos": user["repositories"]["totalCount"],
         "contributed": user["repositoriesContributedTo"]["totalCount"],
         "contributions": calendar["totalContributions"],
@@ -214,28 +210,23 @@ def width(runs):
     return sum(len(t) for t, _ in runs)
 
 
-def dots(n):
-    return " " + "." * n + " " if n > 1 else " " * max(n + 1, 1)
-
-
-def kv(key, value, total=WIDTH):
+def kv(key, value):
     if isinstance(value, str):
         value = [(value, "val")]
-    head = [(". ", "dim"), (key, "key"), (":", "txt")]
-    gap = total - width(head) - width(value) - 2
-    return head + [(dots(gap), "dim")] + value
+    return [(key, "key"), (":", "dim"), (" " * max(2, VALUE_COLUMN - len(key) - 1), "txt")] + value
 
 
 def section(title):
-    return [("- ", "dim"), (title, "txt"), (" " + "─" * (WIDTH - len(title) - 3), "dim")]
+    return [("# " + title, "dim")]
 
 
 def blank():
-    return [(".", "dim")]
+    return []
 
 
 def prompt(command):
-    return [("pedro@solabs", "key"), (":", "txt"), ("~", "val"), ("$ ", "txt"), (command, "txt")]
+    return [("[", "txt"), ("pedro@fedora", "add"), (" ", "txt"),
+            ("~", "key"), ("]$ ", "txt"), (command, "txt")]
 
 
 def num(n):
@@ -247,52 +238,49 @@ def lines(d):
     latest = d["latest"]
     latest_text = (f"{latest['repository']['owner']['login']}/{latest['repository']['name']}"
                    f"#{latest['number']} · {latest['mergedAt'][:10]}" if latest else "none yet")
-    half = WIDTH // 2 + 4
-    stats = (kv("Repos", [(num(d["repos"]), "val"), (" {", "dim"), ("Contributed: ", "key"),
-                          (num(d["contributed"]), "val"), ("}", "dim")], half)
-             + [(" | ", "dim")]
-             + kv("Commits", num(d["commits"]), WIDTH - half - 3)[1:])
     return [
         prompt("neofetch"),
-        [("pedro", "key"), ("@", "txt"), ("solabs", "key"), (" " + "─" * (WIDTH - 13), "dim")],
+        blank(),
+        [("Pedro Henrique", "txt")],
         kv("OS", "Fedora Linux 44"),
-        kv("Uptime", d["uptime"]),
-        kv("Host", "Solabs · AI Lab"),
-        kv("Kernel", "AI Engineer · marketing → data → code"),
-        kv("IDE", "VS Code + Claude Code"),
+        kv("Role", "AI Engineer · marketing → data → code"),
+        kv("Work", "Solabs · AI Lab"),
+        kv("Editor", "VS Code + Claude Code"),
         kv("Memory", "brain-template · one vault for every AI CLI"),
         blank(),
-        kv("Languages.Programming", "TypeScript, Python, SQL, Dart"),
-        kv("Languages.Real", "Portuguese, English"),
-        kv("Stack.Automation", "n8n, Make, Supabase, Postgres"),
-        kv("Stack.App", "React, Next.js, Flutter, FastAPI"),
-        kv("Stack.AI", "Claude, OpenRouter, Gemini, Groq"),
+        kv("Languages", "TypeScript, Python, SQL, Dart"),
+        kv("Spoken", "Portuguese, English"),
+        kv("Automation", "n8n, Make, Supabase, Postgres"),
+        kv("Applications", "React, Next.js, Flutter, FastAPI"),
+        kv("AI", "Claude, OpenRouter, Gemini, Groq"),
         section("In production"),
         kv("Agents", "AI SDRs on WhatsApp + IG, 300+ leads/day"),
         kv("Tracking", "Meta CAPI + Google Ads offline conversions"),
         kv("CRM", "multi-tenant SaaS, RLS, 20 active clients"),
         section("Open Source"),
-        kv("Merged.Upstream", [(num(d["merged"]), "val"), (" {", "dim"), (owners, "key"), ("}", "dim")]),
-        kv("In.Review", f"{d['open']} PRs across {d['open_repos']} repos"),
-        kv("Latest.Merge", latest_text),
+        kv("Merged", f"{num(d['merged'])} PRs · {owners}"),
+        kv("In review", f"{d['open']} PRs across {d['open_repos']} repos"),
+        kv("Latest merge", latest_text),
+        section("GitHub · last 52 weeks of contributions"),
+        kv("Repositories", f"{num(d['repos'])} own · {num(d['contributed'])} contributed to"),
+        kv("Commits", num(d["commits"])),
+        kv("Contributions", num(d["contributions"])),
+        "SPARK",
+        kv("Lines of code", [(num(d["loc_add"] - d["loc_del"]), "val"), (" (", "dim"),
+                                       (num(d["loc_add"]) + "++", "add"), (", ", "dim"),
+                                       (num(d["loc_del"]) + "--", "del"), (")", "dim")]),
         section("Contact"),
         kv("Email", "pluspedrohenrique@gmail.com"),
         kv("LinkedIn", "in/pedrohenriquequadro"),
         kv("Web", "dev.pedroquadro.com"),
-        section("GitHub Stats"),
-        stats,
-        kv("Contributions (last 52 weeks)", num(d["contributions"])),
-        "SPARK",
-        kv("Lines of Code on GitHub", [(num(d["loc_add"] - d["loc_del"]), "val"), (" ( ", "dim"),
-                                       (num(d["loc_add"]) + "++", "add"), (", ", "dim"),
-                                       (num(d["loc_del"]) + "--", "del"), (" )", "dim")]),
+        blank(),
         prompt(""),
     ]
 
 
 def spark_runs(weeks):
     peak = max(weeks) or 1
-    runs = [(". ", "dim"), (" " * (WIDTH - 2 - len(weeks)), "dim")]
+    runs = [(" " * VALUE_COLUMN, "dim")]
     for count in weeks:
         level = 0 if count == 0 else min(4, 1 + int(3 * count / peak + 0.5))
         block = "▁▂▃▄▅▆▇█"[0 if count == 0 else max(1, round(7 * count / peak))]
@@ -300,33 +288,66 @@ def spark_runs(weeks):
     return runs
 
 
-def svg(theme, data, portrait, font_b64, today):
+def wrap_runs(runs, columns=WIDTH):
+    chars = [(char, cls) for text, cls in runs for char in text]
+    while len(chars) > columns:
+        split = next((i for i in range(columns, VALUE_COLUMN, -1) if chars[i][0] == " "), columns)
+        yield [("".join(char for char, _ in group), cls)
+               for cls, group in itertools.groupby(chars[:split], key=lambda item: item[1])]
+        rest = chars[split:]
+        while rest and rest[0][0] == " ":
+            rest.pop(0)
+        chars = [(" ", "txt")] * VALUE_COLUMN + rest
+    yield [("".join(char for char, _ in group), cls)
+           for cls, group in itertools.groupby(chars, key=lambda item: item[1])]
+
+
+def fedora_logo():
+    """Read Fastfetch's two-color ASCII; attribution is in FEDORA-LOGO-LICENSE.txt."""
+    result = []
+    color = "logo1"
+    for line in (HERE / "fedora.txt").read_text().splitlines():
+        runs = []
+        for part in re.split(r"(\$[12])", line):
+            if part in ("$1", "$2"):
+                color = "logo" + part[1]
+            elif part:
+                runs.append((part, color))
+        result.append(runs)
+    return result
+
+
+def svg(theme, data, font_b64, today):
     t = THEMES[theme]
-    pad, bar, gap, lh, fs = 20, 36, 28, 20, 15
+    pad, bar, lh, fs, gap, logo_lh = 26, 48, 22, 16, 28, 18
     cw = fs * 0.6
-    cols, rows = portrait["cols"], portrait["rows"]
-    cell_w = portrait["cell"][0]
-    body = [spark_runs(data["weeks"]) if line == "SPARK" else line for line in lines(data)]
-    panel_x = pad + cols * cell_w + gap
-    top = bar + 18
-    panel_h = len(body) * lh
+    logo = fedora_logo()
+    logo_w = max(width(line) for line in logo) * cw
+    panel_x = pad + logo_w + gap
     w = round(panel_x + WIDTH * cw + pad)
-    h = top + panel_h + 14
-    ascii_lh = panel_h / rows
+    full_columns = int((w - 2 * pad) / cw)
+    body = lines(data)
+    split = body.index(section("Open Source"))
+    intro = [wrapped for line in body[2:split] for wrapped in wrap_runs(line)]
+    rest = [wrapped for line in body[split:]
+            for wrapped in wrap_runs(spark_runs(data["weeks"]) if line == "SPARK" else line, full_columns)]
+    top = bar + 22
+    intro_top = top + 2 * lh
+    rest_top = intro_top + max(len(intro) * lh, len(logo) * logo_lh) + 12
+    h = rest_top + len(rest) * lh + 26
 
     css = [
         f"@font-face{{font-family:'SCP';src:url(data:font/woff2;base64,{font_b64}) format('woff2');}}",
         "text{font-family:'SCP',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre;}",
-        f".p{{font-size:{fs}px}}.a{{font-size:{cell_w / 0.6:g}px}}.t{{font-size:12px;fill:{t['title']}}}",
+        f".p,.logo{{font-size:{fs}px}}.t{{font-size:13px;fill:{t['title']}}}",
     ]
-    css += [f".{k}{{fill:{t[k]}}}" for k in ("txt", "dim", "key", "val", "add", "del")]
+    css += [f".{k}{{fill:{t[k]}}}" for k in ("txt", "dim", "key", "val", "add", "del", "logo1", "logo2")]
     css += [f".s{i}{{fill:{c}}}" for i, c in enumerate(t["spark"])]
-    css += [f".c{i}{{fill:{c}}}" for i, c in enumerate(portrait[theme]["palette"])]
 
     out = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
-        f'role="img" aria-labelledby="title">',
-        "<title id=\"title\">Pedro Henrique, AI Engineer: stack, systems in production, "
+        f'role="img" aria-labelledby="title" xml:space="preserve">',
+        "<title id=\"title\">Pedro Henrique, AI Engineer — Fedora neofetch with ASCII logo: stack, systems in production, "
         "open source and live GitHub stats</title>",
         f"<style>{''.join(css)}</style>",
         f'<clipPath id="frame"><rect width="{w}" height="{h}" rx="12"/></clipPath>',
@@ -337,26 +358,33 @@ def svg(theme, data, portrait, font_b64, today):
         "</g>",
         f'<rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="12" fill="none" stroke="{t["border"]}"/>',
     ]
-    for i, color in enumerate(("#ff5f56", "#ffbd2e", "#27c93f")):
-        out.append(f'<circle cx="{22 + i * 20}" cy="{bar / 2}" r="6" fill="{color}"/>')
-    out.append(f'<text x="{w / 2}" y="{bar / 2 + 4}" text-anchor="middle" class="t">pedro@solabs: ~</text>')
-    out.append(f'<text x="{w - 16}" y="{bar / 2 + 4}" text-anchor="end" class="t">updated {today.isoformat()}</text>')
+    out += [
+        f'<g fill="none" stroke="{t["title"]}" stroke-width="1.5" stroke-linecap="round">',
+        '<path d="M21 16h17v14H21z M29.5 16v14 M26 23h7"/>',
+        f'<path d="M{w - 77} 19h14 M{w - 77} 24h14 M{w - 77} 29h14"/>',
+        '</g>',
+        f'<circle cx="{w - 27}" cy="24" r="12" fill="{t["control"]}"/>',
+        f'<path d="M{w - 30} 21l6 6 M{w - 30} 27l6 -6" fill="none" '
+        f'stroke="{t["title"]}" stroke-width="1.5" stroke-linecap="round"/>',
+        f'<text x="{w / 2}" y="29" text-anchor="middle" class="t">pedro@fedora: ~</text>',
+    ]
 
-    for y, runs in enumerate(portrait[theme]["rows"]):
-        spans = "".join(f'<tspan class="c{c}">{escape(s)}</tspan>' for s, c in runs)
-        out.append(f'<text x="{pad}" y="{top + ascii_lh * (y + 0.8):.1f}" class="a">{spans}</text>')
-
-    for i, runs in enumerate(body):
-        y = top + lh * i + 14
+    positioned = [(pad, top, body[0], "p")]
+    positioned += [(pad, intro_top + logo_lh * i, runs, "logo") for i, runs in enumerate(logo)]
+    positioned += [(panel_x, intro_top + lh * i, runs, "p") for i, runs in enumerate(intro)]
+    positioned += [(pad, rest_top + lh * i, runs, "p") for i, runs in enumerate(rest)]
+    for x, y, runs, cls in positioned:
         spans = "".join(f'<tspan class="{c}">{escape(s)}</tspan>' for s, c in runs if s)
-        out.append(f'<text x="{panel_x}" y="{y}" class="p">{spans}</text>')
+        # Keep the ASCII grid exact even when font hinting rounds glyph advances.
+        length = f' textLength="{width(runs) * cw:g}" lengthAdjust="spacingAndGlyphs"' if runs else ""
+        out.append(f'<text x="{x:g}" y="{y + 14:g}" class="{cls}"{length}>{spans}</text>')
 
-    cursor_x = panel_x + width(body[-1]) * cw
+    cursor_x = pad + width(rest[-1]) * cw
     out.append(
-        f'<rect x="{cursor_x:.1f}" y="{top + lh * (len(body) - 1)}" width="{cw:.1f}" height="17" '
-        f'fill="{t["key"]}"><animate attributeName="opacity" values="1;1;0;0" '
-        'keyTimes="0;0.5;0.5;1" dur="1.1s" repeatCount="indefinite"/></rect>'
+        f'<rect x="{cursor_x:.1f}" y="{rest_top + lh * (len(rest) - 1)}" width="{cw:.1f}" height="17" '
+        f'fill="{t["txt"]}"/>'
     )
+    out.append(f'<text x="{w - pad}" y="{h - 18}" text-anchor="end" class="t">updated {today.isoformat()}</text>')
     out.append("</svg>")
     return "\n".join(out) + "\n"
 
@@ -364,10 +392,9 @@ def svg(theme, data, portrait, font_b64, today):
 def main():
     today = dt.datetime.now(dt.timezone.utc).date()
     data = fetch(today)
-    portrait = json.loads((HERE / "portrait.json").read_text())
     font_b64 = base64.b64encode((HERE / "mono-subset.woff2").read_bytes()).decode()
     for theme in THEMES:
-        (HERE / f"{theme}.svg").write_text(svg(theme, data, portrait, font_b64, today))
+        (HERE / f"{theme}.svg").write_text(svg(theme, data, font_b64, today))
     print(f"card rendered: {data['merged']} merged upstream, {data['open']} open, "
           f"{data['commits']} commits, {data['contributions']} contributions in 52 weeks")
 

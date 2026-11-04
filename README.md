@@ -1,7 +1,7 @@
 <a href="https://dev.pedroquadro.com">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/main/profile/neofetch/dark.svg">
-    <img alt="Pedro Henrique, AI Engineer in Brazil. A neofetch-style card with his stack, the systems he runs in production, his merged open source work and live GitHub stats." src="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/main/profile/neofetch/light.svg">
+    <img alt="Pedro Henrique, AI Engineer in Brazil. A Fedora neofetch terminal with the ASCII Fedora logo, his stack, systems in production, open source work and live GitHub stats." src="https://raw.githubusercontent.com/PedroHenrique0713/PedroHenrique0713/main/profile/neofetch/light.svg">
   </picture>
 </a>
 
